@@ -24,6 +24,24 @@
       </div>
     </div>
 
+    <div class="container mt-3" id="detallesPelicula" style="display: none;">
+      <h2 id="tituloPelicula"></h2>
+      <p id="overviewPelicula"></p>
+      
+      <h5>Géneros:</h5>
+      <ul id="generosPelicula"></ul>
+    
+      <button class="btn btn-info mt-2" id="btnInfoAdicional">Información Adicional</button>
+      
+      <div id="infoAdicional" style="display: none; margin-top: 10px;">
+        <p><strong>Año de lanzamiento:</strong> <span id="anioLanzamiento"></span></p>
+        <p><strong>Duración:</strong> <span id="duracion"></span> minutos</p>
+        <p><strong>Presupuesto:</strong> $<span id="presupuesto"></span></p>
+        <p><strong>Ganancias:</strong> $<span id="ganancias"></span></p>
+      </div>
+    </div>
+    
+
     <div class="album">
       <ul class="list-group container" id="lista">
       </ul>
@@ -42,6 +60,7 @@
   </footer>
 
   <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
 
 </body>
 
