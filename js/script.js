@@ -2,12 +2,16 @@ let moviesData = []; // Variable para almacenar los datos de las películas
 
 // Función para cargar datos de películas
 async function cargarDatos() {
+  document.getElementById('mensajeCarga').style.display = 'block'; // Mostrar mensaje
+
   try {
     const response = await fetch('https://japceibal.github.io/japflix_api/movies-data.json');
     moviesData = await response.json();
-    console.log(moviesData); // Puedes ver los datos en la consola
+    console.log(moviesData);
   } catch (error) {
     console.error('Error al cargar los datos:', error);
+  } finally {
+    document.getElementById('mensajeCarga').style.display = 'none'; // Ocultar mensaje
   }
 }
 
@@ -72,9 +76,14 @@ function mostrarDetalles(pelicula) {
   };
 }
 
-// Función para manejar el evento de búsqueda
 function buscarPeliculas() {
-  const busqueda = document.getElementById('inputBuscar').value.toLowerCase();
+  const busqueda = document.getElementById('inputBuscar').value.trim();
+  
+  if (!busqueda) {
+    alert("Por favor ingresa un término de búsqueda.");
+    return; // No hacer nada si el campo está vacío
+  }
+
   const resultados = moviesData.filter(pelicula =>
     pelicula.title.toLowerCase().includes(busqueda) ||
     (pelicula.genres && pelicula.genres.some(genero => genero.toLowerCase().includes(busqueda))) ||
